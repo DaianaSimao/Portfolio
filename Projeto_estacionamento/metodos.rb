@@ -1,9 +1,9 @@
 module ProjetoEstacionamento
     class Estacionamento
-        attr_accessor :precoInicial, :precoPorHora, :veiculos
-        def initialize (precoInicial = 5.00,precoPorHora = 2.00, veiculos = [])
-            @precoInicial = precoInicial
-            @precoPorHora = precoPorHora
+        attr_accessor :preco_inicial, :preco_por_hora, :veiculos
+        def initialize (preco_inicial = 5.00,preco_por_hora = 2.00, veiculos = [])
+            @preco_inicial = preco_inicial
+            @preco_por_hora = preco_por_hora
             @veiculos = veiculos
         end
 
@@ -22,7 +22,7 @@ module ProjetoEstacionamento
                 if placa.upcase == veiculo
                     puts "Digite as horas que o veiculo permaneceu no estacionamento: "
                     horas = gets.chomp.to_f
-                    total = @precoInicial +(@precoPorHora * horas)
+                    total = @preco_inicial +(@preco_por_hora * horas)
                     puts "Total a pagar: R$#{total}"
                 else
                     puts "Veiculo nao cadastrado!"
