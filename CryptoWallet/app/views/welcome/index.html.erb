@@ -1,3 +1,8 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-Diana Usa Ruby on Rails!! 
+<h1>Seja Bem-vindo!</h1>
+<p><strong> Data:</strong> <%= data_br(Date.today) %></p>
+
+<ul>
+    <li>
+        <%= link_to "Cadastro de Moedas", coins_path %>
+    </li>
+</ul>
