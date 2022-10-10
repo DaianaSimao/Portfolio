@@ -25,11 +25,11 @@ while opcao != 4 do
     case opcao
     when 1
         
-        cliente.adicionarVeiculo()
+        cliente.adicionar_veiculo()
     when 2
-        cliente.removerVeiculo()
+        cliente.remover_veiculo()
     when 3
-        cliente.listarVeiculos()
+        cliente.listar_veiculos()
     end
     puts " "
     puts "Pressione para continuar..."

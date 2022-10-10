@@ -7,14 +7,14 @@ module ProjetoEstacionamento
             @veiculos = veiculos
         end
 
-        def adicionarVeiculo
+        def adicionar_veiculo
             puts "Digite a placa do veículo para estacionar: "
             placa = gets.chomp
             @veiculos << placa.upcase
             puts "Veiculo adicionado com sucesso!!"
         end
 
-        def removerVeiculo()
+        def remover_veiculo()
             puts "Digite a placa do veiculo: "
             placa = gets.chomp 
             total = 0
@@ -32,7 +32,7 @@ module ProjetoEstacionamento
 
         end
 
-        def listarVeiculos
+        def listar_veiculos
             if @veiculos.length != 0 
                 puts @veiculos
             else
