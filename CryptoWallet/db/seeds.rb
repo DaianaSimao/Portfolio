@@ -5,27 +5,30 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+spinner = TTY::Spinner.new("[:spinner] Cadastrando moedas...")
+spinner.auto_spin
 
-puts "Cadastrando Moedas..."
+coins =[
+    {
+        description: "Bitcoin",
+        acronym: "BTC",
+        url_image: "https://toppng.com/public/uploads/preview/bitcoin-png-bitcoin-logo-transparent-background-11562933997uxok6gcqjp.png"
+    },
+    {
+        description: "Ethereum",
+        acronym: "ETH",
+        url_image: "https://image.pngaaa.com/466/1559466-middle.png"
+    },
+    {
+        description: "Dash",
+        acronym: "DASH",
+        url_image: "https://logos-download.com/wp-content/uploads/2018/04/Dash_logo_blue.png"
+    }
+]
 
-Coin.create!(
-    description: "Bitcoin",
-    acronym: "BTC",
-    url_image: "https://toppng.com/public/uploads/preview/bitcoin-png-bitcoin-logo-transparent-background-11562933997uxok6gcqjp.png"
+coins.each do |coin|
+    sleep(1)
+    Coin.find_or_create_by(coin)
+end  
 
-)
-
-Coin.create!(
-    description: "Ethereum",
-    acronym: "ETH",
-    url_image: "https://image.pngaaa.com/466/1559466-middle.png"
-)
-
-Coin.create!(
-    description: "Dash",
-    acronym: "DASH",
-    url_image: "https://logos-download.com/wp-content/uploads/2018/04/Dash_logo_blue.png"
-)
-
-
-puts "Moedas cadastradas com sucesso!!!"
+spinner.success("(Concluido!!)")
