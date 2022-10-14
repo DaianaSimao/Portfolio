@@ -2,9 +2,9 @@ namespace :dev do
   desc "Configura o ambientede desenvolvimento"
   task setup: :environment do  
     if Rails.env.development?
-      show_spinner("Apagando ") {%x(rails db:drop)}
-      show_spinner("Criando ") {%x(rails db:create)}
-      show_spinner("Migrando ") {%x(rails db:migrate)}
+      show_spinner("Apagando o BD ") {%x(rails db:drop)}
+      show_spinner("Criando o BD ") {%x(rails db:create)}
+      show_spinner("Migrando o BD ") {%x(rails db:migrate)}
       %x(rails dev:add_coins)
       %x(rails dev:add_mining_types)
 
@@ -47,11 +47,11 @@ end
   desc "Cadastra os tipos de mineração"
   task add_mining_types: :environment do 
     show_spinner("Cadastrando tipos de mineração...")
-    mining_types = [
-      {name: "Proof of Work", acronym: "PoW"},
-      {name: "Proof of Stake", acronym: "PoS"},
-      {name: "Proof of Capacity", acronym: "PoC"}
-    ]
+      mining_types = [
+        {description: "Proof of Work", acronym: "PoW"},
+        {description: "Proof of Stake", acronym: "PoS"},
+        {description: "Proof of Capacity", acronym: "PoC"}
+      ]
 
 
     mining_types.each do |mining_type|
@@ -65,9 +65,9 @@ end
   private
   
   def show_spinner(msg_start, msg_end = "Concluido!")
-    spinner = TTY::Spinner.new("[:spinner] #{msg_start}o BD...")
+    spinner = TTY::Spinner.new("[:spinner] #{msg_start}")
     spinner.auto_spin
-    yield
+
     spinner.success("(#{msg_end})")
   end
 end
