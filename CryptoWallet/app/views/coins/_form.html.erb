@@ -27,6 +27,11 @@
     <%#= image_tag coin.url_image, width: 30, heigth: 30 %>
   </div>
 
+
+  <div class="field">
+   <%= select("post", "person_id", Person.all.collect {|p| [p.nome, p.id] }, {include_blank: true}%>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
