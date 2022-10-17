@@ -29,7 +29,8 @@
 
 
   <div class="field">
-   <%= select("post", "person_id", Person.all.collect {|p| [p.nome, p.id] }, {include_blank: true}%>
+    <%= form.label :mining_type_id %>
+    <%= form.select("mining_type_id", MiningType.all.collect {|m| [m.description, m.id] }, {include_blank: "Selecione:"}) %>
   </div>
 
   <div class="actions">
