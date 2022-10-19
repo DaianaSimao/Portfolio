@@ -10,12 +10,12 @@
         acronym: Sigla
         url_image: URL da Imagem
         mining_type: Tipo de Mineração
-        mining_type_id: ID do Tipo de Mineração
-        updated_at: Atualização em
+        mining_type_id: Tipo de Mineração
+        updated_at: Ultima atualização em
         created_at: Criado em
       mining_type:
         id: Código
         description: Descrição
         acronym: Sigla
-        upated_at: Atualizado em
+        upated_at: Ultima atualização em
         created_at: Criado em
