@@ -23,14 +23,52 @@ module ProjetoEstacionamento
                     puts "Digite as horas que o veiculo permaneceu no estacionamento: "
                     horas = gets.chomp.to_f
                     total = @preco_inicial +(@preco_por_hora * horas)
-                    puts "Total a pagar: R$#{total}"
+                    dias_da_semana(total)
                 else
                     puts "Veiculo nao cadastrado!"
                 end
                 @veiculos.delete(placa.upcase)
             end
-
         end
+
+        def dias_da_semana(total)
+            puts "Escolha qual é o dia da semana:"
+            puts "[1] Segunda"
+            puts "[2] Terça"
+            puts "[3] Quarta"
+            puts "[4] Quinta"
+            puts "[5] Sexta"
+
+            dia = gets.chomp.to_i
+            case dia
+            when 1
+                desconto = total - 2
+                puts "Hoje é dia promoção, o cliente ganhou R$ 2,00 de desconto no valor #{total}"
+                puts "Total a pagar #{desconto}"
+            when 2
+                puts "Hoje não tem promoção"
+                puts "Total a pagar #{total}"
+            when 3
+                desconto = total - 2
+                puts "Hoje é dia promoção, o cliente ganhou R$ 2,00 de desconto no valor #{total}"
+                puts "Total a pagar #{desconto}"
+            when 4
+                puts "Hoje não tem promoção"
+                puts "Total a pagar #{total}"
+            when 5
+                desconto = total - 2
+                puts "Hoje é dia promoção, o cliente ganhou R$ 2,00 de desconto no valor #{total}"
+                puts "Total a pagar #{desconto}"
+            end
+
+            if dia > 5 
+                puts "Dia da semana invalido"
+                puts "Pressione para continuar"
+                continuar = gets
+                dias_da_semana(total)
+            end
+        end
+                
 
         def listar_veiculos
             if @veiculos.length != 0 
