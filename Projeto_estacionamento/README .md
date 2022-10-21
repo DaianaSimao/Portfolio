@@ -19,7 +19,7 @@ A classe contém três métodos, sendo:
 **ListarVeiculos**: Lista todos os veículos presentes atualmente no estacionamento. Caso não haja nenhum, exibi a mensagem "Não há veículos estacionados".
 
 # Futuras implementaçoes
-1. Determinar o tipo do veículo.
+1. Determinar o tipo do veículo. (Ok)
 2. Dias da semana que contem promoções.
 3. Calcular um valor diferente para veiculos robustos.
 4. Cadastros de clientes no sistema, com cpf e verificação.
