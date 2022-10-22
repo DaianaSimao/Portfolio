@@ -10,6 +10,8 @@
     <%= stylesheet_link_tag    params[:controller], media: 'all', 'data-turbolinks-track': 'reload' %>
     
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'jquery', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'notify', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag params[:controller], 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -19,5 +21,7 @@
     <%= yield %> <%# index.html.rb, edit.html.erb%>
 
   <h1>Final</h1>
+
+    <script>$.notify("Funcionou!!!", "success"); </script>
   </body>
 </html>
