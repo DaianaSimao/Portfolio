@@ -2,6 +2,11 @@
   "name": "CryptoWallet",
   "private": true,
   "dependencies": {
+    "jquery": "^3.6.1",
+    "notify-js-legacy": "^0.4.1",
     "yarn": "^1.22.19"
-  }
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
 }
