@@ -23,13 +23,13 @@ namespace :dev do
             {
               description: "Bitcoin",
               acronym: "BTC",
-              url_image: "https://toppng.com/public/uploads/preview/bitcoin-png-bitcoin-logo-transparent-background-11562933997uxok6gcqjp.png",
+              url_image: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/1024/Bitcoin-BTC-icon.png",
               mining_type: MiningType.find_by(acronym: "PoW")
             },
             {
               description: "Ethereum",
               acronym: "ETH",
-              url_image: "https://image.pngaaa.com/466/1559466-middle.png",
+              url_image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/480px-Ethereum-icon-purple.svg.png",
               mining_type: MiningType.all.sample
             },
             {
