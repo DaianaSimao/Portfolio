@@ -13,13 +13,13 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1><%= MiningType.model_name.human(count: @mining_types.count) %></h1>
+<h1><%= t("menu.mining_type") %></h1>
 
 <table class = "table table-hover">
   <thead>
     <tr>
-      <th><%= @mining_types.human_attribute_name(:description) %></th>
-      <th><%= @mining_types.human_attribute_name(:acronym) %></th>
+      <th><%= t("table_description.description") %></th>
+      <th><%= t("table_description.acronym") %></th>
       <th colspan="3"></th>
     </tr>
   </thead>

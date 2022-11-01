@@ -30,11 +30,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  actual_locale: "English (Internacional) "
+  current_locale: "English (Internacional) "
   welcome: "Welcome!"
+  menu:
+    coin: "Coins"
+    mining_type: "Mining Types"
   messages:
     welcome: "This the Crypto Wallet, an app thet you can register and keep up with your cryptocoins"
-    menu: "To start choose an option below: "
+    menu: "To start, choose an option below: "
     confirm: "Are you sure?"
   hello: "Hello world"
   links:
@@ -42,7 +45,7 @@ en:
     show: "Show"
     delete: "Delete"
     new: "New"
-    back: "Voltar"
+    back: "Back"
   new:
     coin: "New Coin"
     mining_type: "New Mining Type"
@@ -52,3 +55,7 @@ en:
   showing: 
     coin: "Showing Coin"
     mining_type: "Showing Mining Type"
+  table_description:
+    description: "Description"
+    acronym: "Acronym"
+    url_image: "Url image"
