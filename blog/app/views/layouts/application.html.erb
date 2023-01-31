@@ -26,11 +26,23 @@
       <% flash.each do |type, message| %>
         <div class="alert alert-<%= type == "alert"? "danger" : "success" %> alert-dismissible fade show" role="alert">
           <%= message %>
-
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
       <% end %>
-      
+
+      <div class="row">
+        <div class="col-4 offset-8">
+          <%= form_with url: search_posts_path, method: :get, local: true, class: "form-inline" do |form|%>
+            <div class="input-group mx-3 mb-3">
+              <%= form.search_field :q, class: "form-control", required: true, placeholder: "Buscar", value: params[:q] %>
+
+              <%= form.submit "Busca", class: "btn btn-primary ", data: {disable_with: "Buscando...."} %>
+            </div>
+          <% end %>    
+        </div>
+      </div>
 
       <%= yield %>
     </div>
