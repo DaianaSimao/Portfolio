@@ -1,1 +1,19 @@
 @import "bootstrap";
+.mycolor {
+    background-color: rgb(248, 177, 220);
+    color: #000;
+   }
+
+
+.btn-mycolor{
+    background-color: rgb(248, 177, 220);
+ }
+
+ a:link, a:visited {
+    color: #000;
+    padding: 14px 25px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    }
+    

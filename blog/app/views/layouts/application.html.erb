@@ -11,9 +11,9 @@
   </head>
 
   <body>
-    <div class="bg-primary text-white text-center mb-4 p-4">
+    <div class="mycolor p-2 text-white bg-opacity-75 text-center mb-4 p-4">
       <%= link_to root_path, class: "text-white" do %>
-        <h1 class"display-4"> Blog da Daiana Simão</h1>
+        <h1 class"display-4"> Blog Jovem Dev  <img src="https://cdn-icons-png.flaticon.com/512/2704/2704234.png" width="50" height="50"></h1>
       <% end %>
 
       <p class="lead">
@@ -38,7 +38,7 @@
             <div class="input-group mx-3 mb-3">
               <%= form.search_field :q, class: "form-control", required: true, placeholder: "Buscar", value: params[:q] %>
 
-              <%= form.submit "Busca", class: "btn btn-primary ", data: {disable_with: "Buscando...."} %>
+              <%= form.submit "Busca", class: "btn btn-mycolor ", data: {disable_with: "Buscando...."} %>
             </div>
           <% end %>    
         </div>
@@ -47,7 +47,7 @@
       <%= yield %>
     </div>
 
-    <footer class="bg-primary text-white text-center mt-5 p-4">
+    <footer class="mycolor text-white text-center mt-5 p-4">
       Copyright ©️ Daiana Simão <%= Date.current.year %>
     </footer>
  
