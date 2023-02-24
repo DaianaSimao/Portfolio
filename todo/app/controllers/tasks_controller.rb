@@ -1,9 +1,8 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[ edit update destroy ]
-
+  before_action :set_task, only: [:edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = Task.only_parents.order(:due_date)
   end
 
   def new
@@ -37,7 +36,8 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_url, notice: "Tarefa foi removida com sucesso."
+
+    redirect_to tasks_url, notice: 'Tarefa removida com sucesso.'
   end
 
   private
@@ -47,6 +47,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:description, :due_date, :done)
+    params.require(:task).permit(:description, :due_date, :done, :parent_id)
   end
 end
