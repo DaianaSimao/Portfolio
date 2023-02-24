@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  include Exportable
+
   before_action :set_task, only: [:edit, :update, :destroy]
 
   def index
@@ -39,6 +41,7 @@ class TasksController < ApplicationController
 
     redirect_to tasks_url, notice: 'Tarefa removida com sucesso.'
   end
+
 
   private
 
