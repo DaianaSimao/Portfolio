@@ -1,6 +1,6 @@
-# fly.toml file generated for gerenciador on 2023-02-24T13:03:51-03:00
+# fly.toml file generated for gerenciadorv2 on 2023-02-25T15:07:21-03:00
 
-app = "gerenciador"
+app = "gerenciadorv2"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
