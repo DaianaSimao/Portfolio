@@ -4,10 +4,6 @@
 A aplicação consiste na prática que venho buscando em relação a aplicar os conhecimentos, tanto no back-end como no front-end.
 Buscando utilizar os métodos HTTP mais essenciais (CRUD)
 Nela Você podera adicionar sua crypto moedas favoritas, suas respectivas imagens e acompanhar a cotação das mesma em tempo real.
- e testes.
-No front-end usando Bootstrap 4.0 , rails, HTML, css e scss.
-
-Usando Ruby 2.6 e framework Rails 5.2.
 
 
 ### 📋 Pré-requisitos
