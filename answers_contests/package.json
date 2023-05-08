@@ -1,5 +1,9 @@
 {
   "name": "answers_contests",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "DaianaSimao <daiana.xd11@hotmail.com>",
+  "license": "MIT"
 }
