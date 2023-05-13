@@ -54,5 +54,4 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
       params[:admin].extract!(:password, :password_confirmation)
     end
   end
-
 end
