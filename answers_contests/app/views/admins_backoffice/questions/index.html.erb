@@ -9,6 +9,7 @@
         <tr>
           <th>#</th>
           <th>Pergunta</th>
+          <th>Assunto</th>
           <th><%= link_to new_admins_backoffice_question_path, class: "btn btn-success btn-circle" do %>
                 <i class="fa fa-plus" ></i>
               <%end%></th>
@@ -18,7 +19,8 @@
         <% @questions.each do |question|%>
           <tr>
             <td><%= question.id%></td>
-            <td><%= question.description%></td>
+            <td><%= question.description.truncate(50)%></td>
+            <td><%= question.subject.description.truncate(30)%></td>
             <td>
                 <%= link_to edit_admins_backoffice_question_path(question), class: "btn btn-primary btn-circle" do %>
                   <i class="fa fa-edit"></i>
