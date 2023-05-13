@@ -1,4 +1,4 @@
-class AdminstsBackoffice::SubjectsController < subjectsBackofficeController
+class AdminsBackoffice::SubjectsController < AdminsBackofficeController
   before_action :set_subject, only: [:edit, :update, :destroy]
 
   def index
