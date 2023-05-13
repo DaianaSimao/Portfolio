@@ -5,9 +5,9 @@ namespace :dev do
   desc "Configurar o ambiente de desenvolvimento"
   task setup: :environment do 
     if Rails.env.development?
-      #show_spinner("Apagando BD...") { %x(rails db:drop) }
-      #show_spinner("Criando BD...") { %x(rails db:create) }
-      #show_spinner("Migrando BD...") { %x(rails db:migrate) }
+      show_spinner("Apagando BD...") { %x(rails db:drop) }
+      show_spinner("Criando BD...") { %x(rails db:create) }
+      show_spinner("Migrando BD...") { %x(rails db:migrate) }
       show_spinner("Cadastrando o administrador padrão...") { %x(rails dev:add_default_admin) }
       show_spinner("Cadastrando administradores extras...") { %x(rails dev:add_extra_admins) }
       show_spinner("Cadastrando usuário padrão...") { %x(rails dev:add_default_user) }
@@ -59,11 +59,11 @@ namespace :dev do
   end
 
   desc "Adiciona perguntas e respostas"
-  task add_subjects: :environment do
+  task add_answers_and_questions: :environment do
     Subject.all.each do |subject|
       rand(5..10).times do |i|
         Question.create!(
-          description: "#{Faker::Loren.paragraphs} #{Faker::Lorem.question} ",
+          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question} ",
           subject: subject
         )
       end
