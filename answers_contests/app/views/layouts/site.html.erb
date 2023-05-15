@@ -47,6 +47,15 @@
                 <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %><span class="caret"></span></a>
                 <ul class="dropdown-menu">
+                <li role="separator" class="divider"></li>
+
+                  <li>
+                    <%= link_to  users_backoffice_welcome_index_path do %>
+                      <i class="fa fa-user fa-fw"></i> Perfil
+                    <% end %>
+                  </li>
+
+                <li role="separator" class="divider"></li>                    
 
                   <li>
                     <%= link_to  destroy_user_session_path, method: :delete do %>
@@ -63,7 +72,6 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1>Navbar example</h1>
         <%= yield %>
       </div>
 
@@ -72,6 +80,20 @@
 
     <%= javascript_include_tag 'application'%>
     <%= javascript_include_tag 'site'%>
+
+    <% if notice %>
+      <%= javascript_tag do %>
+        $.bootstrapGrowl("<%= notice %>", {
+        ele: 'body', // which element to append to
+        type: 'success', // (null, 'info', 'danger', 'success')
+        align: 'right', // ('left', 'right', or 'center')
+        width: 250, // (integer, or 'auto')
+        delay: 4000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!
+        allow_dismiss: true, // If true then will display a cross to close the popup.
+        stackup_spacing: 10 // spacing between consecutively stacked growls.
+        });
+      <%end%>
+    <%end%>
 
   </body>
 </html>
