@@ -61,23 +61,17 @@ namespace :dev do
   desc "Adiciona perguntas e respostas"
   task add_answers_and_questions: :environment do
     Subject.all.each do |subject|
+
       # Criando as Perguntas com a descrição, subject(subject_id), respostas.
       rand(5..10).times do |i|
-        params = { question: {
-          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question} ",
-          subject: subject,
-          answers_attributes:[]
-        }}
+        params = create_question_params(subject)
+        answers_array = params[:question][:answers_attributes]
+
         # Criando respostas que vão ser de 2 a 5. Todas vão ser falsas
-        rand(2..5).times do |j|
-          params[:question][:answers_attributes].push(
-            {description: Faker::Lorem.sentence, correct: false}
-          )
-        end
+        add_answers(answers_array)
 
         # Substituindo uma das respostas falsa por uma verdadeira
-        index = rand(params[:question][:answers_attributes].size)
-        params[:question][:answers_attributes][index] = {description:Faker::Lorem.sentence, correct: true }
+        elect_true_answers(answers_array)
 
         # Criando a questões com as respostas
         Question.create!(params[:question])
@@ -86,6 +80,36 @@ namespace :dev do
   end
 
   private
+
+  def create_answers_params(correct = false)
+    # Metodo para criar as respostas
+    {description:Faker::Lorem.sentence, correct: correct }
+  end
+
+  def add_answers(answers_array = [])
+    # Metodo para adcionar as respostas as perguntas, as respostas vão ser de 2 a 5. Todas vão ser falsas
+    rand(2..5).times do |j|
+      answers_array.push(
+        create_answers_params
+      )
+    end
+  end
+
+  def elect_true_answers(answers_array= [])
+    # Metodo para eleger uma respostas verdadeira
+    select_index = rand(answers_array.size)
+    answers_array[select_index] = create_answers_params(true)
+  end
+
+  def create_question_params(subject)
+    # Metodo para criar as Perguntas com a descrição, subject(subject_id), respostas.
+    { question: {
+      description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question} ",
+      subject: subject,
+      answers_attributes:[]
+      }
+    }
+  end
 
   def show_spinner(msg_start, msg_end = "Concluido!")
     spinner = TTY::Spinner.new("[:spinner] #{msg_start}")
