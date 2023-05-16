@@ -1,14 +1,20 @@
-<h1>Site::Welcome#index</h1>
-<p>Find me in app/views/site/welcome/index.html.erb</p>
+<% @questions.each do |question|%>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= question.description %></h3>
+    </div>
 
-<% if user_signed_in? %>
-    <p>Usuário ESTÁ logado / <%= current_user.email%> </p>
-<%else%>
-    <p>Usuário NÃO está logado </p>
-<% end%>
+    <div class="panel-body">
 
-<% if admin_signed_in? %>
-    <p>Administrador ESTÁ logado / <%= current_admin.email%></p>
-<%else%>
-    <p>Administrador NÃO está logado </p>
-<% end%>
+      <ul>
+        <% question.answers.each do |answer| %>
+          <li><%= answer.description %></li>
+        <% end %>
+      </ul>
+
+    </div>
+  </div>
+<% end %>
+<div class="text-center">
+  <%= paginate @questions%>
+</div>
