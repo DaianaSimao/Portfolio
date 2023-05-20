@@ -78,7 +78,16 @@ namespace :dev do
       end
     end 
   end
-
+  
+  desc "Resetar o contador dos assuntos"
+  task reset_subject_counter: :environment do
+    show_spinner("Resetando o contador dos assuntos...") do
+      Subject.find_each do |subject|
+        Subject.reset_counters(subject.id, :questions)
+      end
+    end
+  end
+  
   private
 
   def create_answers_params(correct = false)
@@ -110,6 +119,7 @@ namespace :dev do
       }
     }
   end
+
 
   def show_spinner(msg_start, msg_end = "Concluido!")
     spinner = TTY::Spinner.new("[:spinner] #{msg_start}")
