@@ -5,7 +5,7 @@
 <div class="row">
 <% if @admin.errors.any? %>
   <div class="alert alert-danger alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true" _msttexthash="19565" _msthash="78">×</button><font _mstmutation="1" _msttexthash="3176186" _msthash="79"> 
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
       <ul>
         <% @admin.errors.full_messages.each do |message|%>
           <li><%= message %></li> 
