@@ -106,75 +106,6 @@
                     </li>
                   </ul>
                 </li>
-
-                <li role="presentation" class="dropdown">
-                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                    <li>
-                      <a>
-                        <span class="image">
-                          <%= image_tag 'img.jpg', alt:"Profile Image" %>
-                        </span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image">
-                          <%= image_tag 'img.jpg', alt:"Profile Image" %>
-                        </span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image">
-                          <%= image_tag 'img.jpg', alt:"Profile Image" %>
-                        </span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image">
-                          <%= image_tag 'img.jpg', alt:"Profile Image" %>
-                        </span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="text-center">
-                        <a>
-                          <strong>See All Alerts</strong>
-                          <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
               </ul>
             </nav>
           </div>
@@ -204,5 +135,28 @@
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'users_backoffice' %>
+
+
+    <% if notice %>
+      <%= javascript_tag do %>
+        $.bootstrapGrowl("<%= notice %>", {
+        ele: 'body', // which element to append to
+        type: 'success', // (null, 'info', 'danger', 'success')
+        align: 'right', // ('left', 'right', or 'center')
+        width: 250, // (integer, or 'auto')
+        delay: 4000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!
+        allow_dismiss: true, // If true then will display a cross to close the popup.
+        stackup_spacing: 10 // spacing between consecutively stacked growls.
+        });
+      <%end%>
+    <%end%>
+
+
+    <%= javascript_tag do %>
+      $(function(){
+        $('.datepicker').datepicker();
+      })
+    <% end %>
+
   </body>
 </html>
