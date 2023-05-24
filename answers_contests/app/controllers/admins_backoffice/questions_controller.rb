@@ -19,6 +19,10 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
     end
   end
 
+  def questions_answer(total_questions)
+    set_user_statistic(@answer)
+    @questions.size - user_statistic.total_questions
+  end
 
   def edit
   end
