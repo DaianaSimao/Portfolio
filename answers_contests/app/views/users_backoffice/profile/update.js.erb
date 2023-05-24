@@ -1,8 +1,10 @@
 $('#avatarModal').modal('hide');
 
-document.getElementById('imgAvatarLg').src ='<%= @user.user_profile.avatar%>'
+document.getElementById("imgAvatarLg").src ='<%= url_for(@user.user_profile.avatar)%>'
+document.getElementById("imgAvatarMd").src ='<%= url_for(@user.user_profile.avatar)%>'
+document.getElementById("imgAvatarSm").src ='<%= url_for(@user.user_profile.avatar)%>'
 
-$.bootstrapGrowl("Atualizado com sucesso!", {
+$.bootstrapGrowl("Avatar atualizado com sucesso!", {
   type: 'success', // (null, 'info', 'danger', 'success')
   align: 'right', // ('left', 'right', or 'center')
   width: 250, // (integer, or 'auto')
