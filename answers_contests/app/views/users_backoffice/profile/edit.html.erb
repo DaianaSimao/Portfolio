@@ -21,8 +21,7 @@
             </div>
         <% end %>
 
-        <%= form_for(@user, url: users_backoffice_profile_path, method: :patch, local: true, :html => {:class => 'form-horizontal form-label-left'}) do |form|  %>
-
+        <%= form_with(url: users_backoffice_profile_path, model: current_user, class:"form-horizontal form-label-left") do |form| %>
           <div class="form-group">
             <%= form.label :first_name,  class: "col-form-label col-md-3 col-sm-3 label-align" %>
             <div class="col-md-6 col-sm-6">

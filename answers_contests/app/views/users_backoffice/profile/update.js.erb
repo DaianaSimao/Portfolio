@@ -1,0 +1,11 @@
+$('#avatarModal').modal('hide');
+
+document.getElementById('imgAvatarLg').src ='<%= @user.user_profile.avatar%>'
+
+$.bootstrapGrowl("Atualizado com sucesso!", {
+  type: 'success', // (null, 'info', 'danger', 'success')
+  align: 'right', // ('left', 'right', or 'center')
+  width: 250, // (integer, or 'auto')
+  allow_dismiss: true, // If true then will display a cross to close the popup.
+  stackup_spacing: 10 // spacing between consecutively stacked growls.
+});
