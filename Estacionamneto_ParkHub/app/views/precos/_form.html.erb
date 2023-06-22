@@ -1,0 +1,27 @@
+<%= form_with(model: preco) do |form| %>
+  <% if preco.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(preco.errors.count, "error") %> prohibited this preco from being saved:</h2>
+
+      <ul>
+        <% preco.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :veiculo_id, style: "display: block" %>
+    <%= form.text_field :veiculo_id %>
+  </div>
+
+  <div>
+    <%= form.label :preco_hora, style: "display: block" %>
+    <%= form.text_field :preco_hora %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
