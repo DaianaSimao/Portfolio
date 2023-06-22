@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hora_entrada: 2023-06-22
+  hora_saida: 2023-06-22
+  valor_cobrado: 1.5
+  veiculo: one
+
+two:
+  hora_entrada: 2023-06-22
+  hora_saida: 2023-06-22
+  valor_cobrado: 1.5
+  veiculo: two
