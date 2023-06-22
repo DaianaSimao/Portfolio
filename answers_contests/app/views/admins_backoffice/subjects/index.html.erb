@@ -9,9 +9,14 @@
         <tr>
           <th>#</th>
           <th><%= translate_attribute(@subjects, :description)%></th>
-          <th><%= link_to new_admins_backoffice_subject_path, class: "btn btn-success btn-circle" do %>
+          <th><%= link_to admins_backoffice_subjects_path, class: "btn btn-success btn-circle" do %>
                 <i class="fa fa-plus" ></i>
-              <%end%></th>
+              <%end%>
+
+              <%= link_to admins_backoffice_subjects_path(format: :pdf), class: "btn btn-danger btn-circle" do %>
+                <i class="fa fa-file-pdf-o" ></i>
+              <%end%>
+          </th>
         </tr>
       </thead>
       <tbody>
