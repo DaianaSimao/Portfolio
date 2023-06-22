@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @vaga %>
+
+<div>
+  <%= link_to "Edit this vaga", edit_vaga_path(@vaga) %> |
+  <%= link_to "Back to vagas", vagas_path %>
+
+  <%= button_to "Destroy this vaga", @vaga, method: :delete %>
+</div>

@@ -1,0 +1,27 @@
+<%= form_with(model: vaga) do |form| %>
+  <% if vaga.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(vaga.errors.count, "error") %> prohibited this vaga from being saved:</h2>
+
+      <ul>
+        <% vaga.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :andar, style: "display: block" %>
+    <%= form.text_field :andar %>
+  </div>
+
+  <div>
+    <%= form.label :numero_vaga, style: "display: block" %>
+    <%= form.number_field :numero_vaga %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
