@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
+  get 'inicio/index'
   devise_for :funcionarios
   devise_for :admins
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root "inicio#index"
 end
