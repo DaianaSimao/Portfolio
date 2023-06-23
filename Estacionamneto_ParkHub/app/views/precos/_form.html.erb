@@ -11,17 +11,31 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :veiculo_id, style: "display: block" %>
-    <%= form.text_field :veiculo_id %>
-  </div>
-
-  <div>
-    <%= form.label :preco_hora, style: "display: block" %>
-    <%= form.text_field :preco_hora %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+<div class="container">
+      <div class="card p-4 mt-5">
+          <div class="row g-3">
+              <div class="col-12 mb-4">
+                  <h4>Cadastro de Preços</h4>
+                  <span class="text-muted">Preencha todos os dados corretamente:</span>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                  <div class="form-floating">
+                      <%= form.number_field :preco, step: :any, class:"form-control", placeholder:"Digite o andar",required: true %>
+                      <%= form.label :preco %>
+                  </div>
+              </div>
+                <div class="col-lg-4 col-md-12">
+                  <div class="form-floating">
+                  <select class="form-select">
+                      <%= form.select :veiculo_id, options_from_collection_for_select(Veiculo.all, :id, :tipo), required: true %>
+                      <%= form.label :veiculo_id %>
+                  </div>
+              </div>
+              <div class="col-12 mt-4">
+                  <%= form.submit "Add vaga" , class:"btn btn-primary text-uppercase"%><i class="fa fa-plane ms-3"></i>
+                  <%= link_to "Volta para vagas", precos_path , class: "btn btn-secondary text-uppercase"%>
+              </div>
+          </div>
+      </div>
   </div>
 <% end %>
