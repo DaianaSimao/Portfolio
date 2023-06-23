@@ -11,17 +11,30 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :andar, style: "display: block" %>
-    <%= form.text_field :andar %>
-  </div>
-
-  <div>
-    <%= form.label :numero_vaga, style: "display: block" %>
-    <%= form.number_field :numero_vaga %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="container">
+      <div class="card p-4 mt-5">
+          <div class="row g-3">
+              <div class="col-12 mb-4">
+                  <h4>Cadastrar Vagas</h4>
+                  <span class="text-muted">Preencha todos os dados corretamente:</span>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                  <div class="form-floating">
+                      <%= form.text_field :andar, class:"form-control", placeholder:"Digite o andar",required: true %>
+                      <%= form.label :andar %>
+                  </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                  <div class="form-floating">
+                      <%= form.text_field :numero_vaga, class:"form-control", placeholder:"Digite o andar", required: true %>
+                      <%= form.label :numero_vaga %>
+                  </div>
+              </div>
+              <div class="col-12 mt-4">
+                  <%= form.submit "Add vaga" , class:"btn btn-primary text-uppercase"%><i class="fa fa-plane ms-3"></i>
+                  <%= link_to "Volta para vagas", vagas_path , class: "btn btn-secondary text-uppercase"%>
+              </div>
+          </div>
+      </div>
   </div>
 <% end %>
