@@ -24,11 +24,11 @@
                       <%= form.label :preco %>
                   </div>
               </div>
-                <div class="col-lg-4 col-md-12">
-                  <div class="form-floating">
-                    <%= form.select :tipo, options_for_select(@tipos), { include_blank: true }, class: "form-select" %>
-                    <%= form.label :tipo %>
-                  </div>
+              <div class="col-lg-4 col-md-12">
+                <div class="form-floating">
+                  <%= form.select :tipo, options_for_select(@tipos), { include_blank: true }, class: "form-select" %>
+                  <%= form.label :tipo %>
+                </div>
               </div>
               <div class="col-12 mt-4">
                   <%= form.submit "Add preços" , class:"btn btn-primary text-uppercase"%><i class="fa fa-plane ms-3"></i>
