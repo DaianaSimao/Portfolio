@@ -12,11 +12,13 @@ class VeiculosController < ApplicationController
 
   # GET /veiculos/new
   def new
+    @tipos = [" Carro P", "Carro M", "Carro G", "Moto"]
     @veiculo = Veiculo.new
   end
 
   # GET /veiculos/1/edit
   def edit
+    @tipos = [" Carro P", "Carro M", "Carro G", "Moto"]
   end
 
   # POST /veiculos or /veiculos.json

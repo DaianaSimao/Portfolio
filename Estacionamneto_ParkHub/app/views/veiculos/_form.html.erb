@@ -41,9 +41,15 @@
                     <%= form.label "Digite a cor do carro:" %>
                 </div>
             </div>
+              <div class="col-lg-4 col-md-12">
+                <div class="form-floating">
+                  <%= form.select :tipo, options_for_select(@tipos), { include_blank: true }, class: "form-select" %>
+                  <%= form.label :tipo %>
+                </div>
+              </div>
             <div class="col-12 mt-4">
               <%= form.submit "Add veiculo" , class:"btn btn-primary text-uppercase"%><i class="fa fa-plane ms-3"></i>
-              <%= link_to "Volta para veiculos", precos_path , class: "btn btn-secondary text-uppercase" %>
+              <%= link_to "Volta para veiculos", veiculos_path , class: "btn btn-secondary text-uppercase" %>
             </div>
         </div>
     </div>
