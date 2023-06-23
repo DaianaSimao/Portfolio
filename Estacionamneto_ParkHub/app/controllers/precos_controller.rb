@@ -12,11 +12,13 @@ class PrecosController < ApplicationController
 
   # GET /precos/new
   def new
+    @tipos = [" Carro P", "Carro M", "Carro G", "Moto"]
     @preco = Preco.new
   end
 
   # GET /precos/1/edit
   def edit
+    @tipos = [" Carro P", "Carro M", "Carro G", "Moto"]
   end
 
   # POST /precos or /precos.json
