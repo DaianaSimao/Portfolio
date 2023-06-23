@@ -26,14 +26,13 @@
               </div>
                 <div class="col-lg-4 col-md-12">
                   <div class="form-floating">
-                  <select class="form-select">
-                      <%= form.select :veiculo_id, options_from_collection_for_select(Veiculo.all, :id, :tipo), required: true %>
-                      <%= form.label :veiculo_id %>
+                    <%= form.select :tipo, options_for_select(@tipos), { include_blank: true }, class: "form-select" %>
+                    <%= form.label :tipo %>
                   </div>
               </div>
               <div class="col-12 mt-4">
-                  <%= form.submit "Add vaga" , class:"btn btn-primary text-uppercase"%><i class="fa fa-plane ms-3"></i>
-                  <%= link_to "Volta para vagas", precos_path , class: "btn btn-secondary text-uppercase"%>
+                  <%= form.submit "Add preços" , class:"btn btn-primary text-uppercase"%><i class="fa fa-plane ms-3"></i>
+                  <%= link_to "Volta para preços", precos_path , class: "btn btn-secondary text-uppercase"%>
               </div>
           </div>
       </div>
