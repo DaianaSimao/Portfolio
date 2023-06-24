@@ -54,14 +54,8 @@
         </div>
         <div class="col-lg-4 col-md-12">
           <div class="form-floating">
-            <%= form.select :andar, options_for_select(Vaga.pluck(:andar).uniq),{ include_blank: true }, class: "form-select" %>
+            <%= form.select :vaga, options_for_select(Vaga.pluck(:vaga).uniq),{ include_blank: true }, class: "form-select" %>
             <%= form.label "Digite o anda da vaga:" %>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-12">
-          <div class="form-floating">
-            <%= form.select :numero_vaga, options_for_select(Vaga.pluck(:numero_vaga).uniq), { include_blank: true }, class: "form-select" %>
-            <%= form.label "numero da vaga:" %>
           </div>
         </div>
         <div class="col-12 mt-4">
