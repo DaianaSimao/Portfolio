@@ -1,0 +1,77 @@
+<%= form_with(model: estacionamento, url: estacionamentos_path) do |form| %>
+  <% if estacionamento.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(estacionamento.errors.count, "error") %> prohibited this estacionamento from being saved:</h2>
+      <ul>
+        <% estacionamento.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container">
+    <div class="card p-4 mt-5">
+      <div class="row g-3">
+        <div class="col-12 mb-4">
+          <h4>Estacionamento</h4>
+          <span class="text-muted">Preencha os dados do veiculo corretamente</span>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="form-floating">
+            <%= form.text_field :placa, class:"form-control", placeholder:"Digite a placa do veiculo" %>
+            <%= form.label "Digite a placa do veiculo:"%>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="form-floating">
+            <%= form.text_field :marca, class:"form-control", placeholder:"placa" %>
+            <%= form.label "Digite a marca do carro:" %>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="form-floating">
+            <%= form.text_field :modelo, class:"form-control", placeholder:"placa" %>
+            <%= form.label "Digite modelo do carro:" %>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="form-floating">
+            <%= form.text_field :cor, class:"form-control", placeholder:"cor" %>
+            <%= form.label "Digite a cor do carro:" %>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="form-floating">
+            <%= form.select :tipo, options_for_select(Preco.pluck(:tipo).uniq),{ include_blank: true }, class: "form-select" %>
+            <%= form.label :tipo %>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="form-floating">
+            <%= form.number_field :preco, class:"form-control", placeholder:"cor"%>
+            <%= form.label "Digite o numero da vaga:" %>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="form-floating">
+            <%= form.select :andar, options_for_select(Vaga.pluck(:andar).uniq),{ include_blank: true }, class: "form-select" %>
+            <%= form.label "Digite o anda da vaga:" %>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="form-floating">
+            <%= form.select :numero_vaga, options_for_select(Vaga.pluck(:numero_vaga).uniq), { include_blank: true }, class: "form-select" %>
+            <%= form.label "numero da vaga:" %>
+          </div>
+        </div>
+        <div class="col-12 mt-4">
+          <%= form.submit "Add veiculo", class: "btn btn-success text-uppercase" %>
+          <br>
+          <%= link_to estacionamentos_path, class: "btn btn-danger text-uppercase" do %>
+            Cancelar
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

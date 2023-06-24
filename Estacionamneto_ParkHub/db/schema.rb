@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_23_011714) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_24_000126) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_23_011714) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "estacionamentos", force: :cascade do |t|
+    t.bigint "veiculo_id", null: false
+    t.bigint "vaga_id", null: false
+    t.bigint "preco_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "tickets_id", null: false
+    t.index ["preco_id"], name: "index_estacionamentos_on_preco_id"
+    t.index ["tickets_id"], name: "index_estacionamentos_on_tickets_id"
+    t.index ["vaga_id"], name: "index_estacionamentos_on_vaga_id"
+    t.index ["veiculo_id"], name: "index_estacionamentos_on_veiculo_id"
   end
 
   create_table "funcionarios", force: :cascade do |t|
@@ -80,6 +93,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_23_011714) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "estacionamentos", "precos"
+  add_foreign_key "estacionamentos", "tickets", column: "tickets_id"
+  add_foreign_key "estacionamentos", "vagas"
+  add_foreign_key "estacionamentos", "veiculos"
   add_foreign_key "precos", "veiculos"
   add_foreign_key "tickets", "veiculos"
 end
