@@ -115,7 +115,7 @@ body{
 
 .btn3{
   height: 35px;
-  width: 120px;
+  width: 70px;
   border: none;
   background-color:#fd8300;
   font-size: 12px;
@@ -127,10 +127,32 @@ body{
 }
 
 .btn3:hover{
-  background-color:#165f12
+  background-color:#8f5e10
 }
 
 .btn3:focus{
+  box-shadow:none;
+  outline:none
+}
+
+.btn4{
+  height: 35px;
+  width: 70px;
+  border: none;
+  background-color:#119cff;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 5px;
+  display:flex;
+  justify-content:center;
+  align-items:center
+}
+
+.btn4:hover{
+  background-color:#12305f
+}
+
+.btn4:focus{
   box-shadow:none;
   outline:none
 }
@@ -181,6 +203,12 @@ body{
   border-radius: 8px;
   width:100%
 }
+.card-3{
+  border: none;
+  border-radius: 10px;
+  width: 30%;
+  background-color: #fff;
+}
 
 .stellar{
   font-size: 16px;
@@ -204,4 +232,11 @@ body{
 .year{
   font-size: 13px;
   color: #119cff
+}
+
+
+.icons i {
+
+margin-left: 20px;
+
 }
