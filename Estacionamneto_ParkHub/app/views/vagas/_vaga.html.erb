@@ -1,12 +1,32 @@
 <div id="<%= dom_id vaga %>">
-  <p>
-    <strong>Andar:</strong>
-    <%= vaga.andar %>
-  </p>
-
-  <p>
-    <strong>Numero vaga:</strong>
-    <%= vaga.numero_vaga %>
-  </p>
-
+  <div class="container mt-2">
+    <table class="table table-borderless table-responsive card-3">
+      <thead>
+        <tr class="border-bottom">
+          <th>
+            <span class="ml-2">Vaga</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-bottom">
+          <td>
+            <div class="p-2">
+              <span class="d-block font-weight-bold"><%= vaga.vaga%></span>
+            </div>
+          </td>
+          <td>
+            <div class="p-2 d-flex flex-row align-items-center mb-2">
+              <div class="d-flex flex-column ml-2">
+                <%= link_to "editar", "#", class: "btn4 ", style: "margin-right: 10px;"%>
+              </div>
+              <div class="d-flex flex-column ml-2">
+                <%= link_to "excluir", "#", class: "btn3 "%>
+              </div>
+            </div>
+          </td>
+        </div>
+      </tbody>
+    </table>
+  </div>
 </div>

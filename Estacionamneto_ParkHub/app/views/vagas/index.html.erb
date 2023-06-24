@@ -1,14 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Vagas</h1>
+<div style="display: flex; align-items: center;">
+  <h1 style="margin-right: 10px;">Vagas</h1>
+  <%= link_to "Nova vaga", new_vaga_path, class: "btn4" %>
+</div>
 
 <div id="vagas">
   <% @vagas.each do |vaga| %>
     <%= render vaga %>
-    <p>
-      <%= link_to "Show this vaga", vaga %>
-    </p>
   <% end %>
 </div>
-
-<%= link_to "New vaga", new_vaga_path %>
