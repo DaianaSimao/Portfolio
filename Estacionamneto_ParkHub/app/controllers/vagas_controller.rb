@@ -25,7 +25,7 @@ class VagasController < ApplicationController
 
     respond_to do |format|
       if @vaga.save
-        format.html { redirect_to vaga_url(@vaga), notice: "Vaga was successfully created." }
+        format.html { redirect_to vagas_path, notice: "Vaga was successfully created." }
         format.json { render :show, status: :created, location: @vaga }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +65,6 @@ class VagasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vaga_params
-      params.require(:vaga).permit(:andar, :numero_vaga)
+      params.require(:vaga).permit(:vaga)
     end
 end
