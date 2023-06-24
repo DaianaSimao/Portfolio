@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :estacionamentos
   resources :vagas
   resources :veiculos
   resources :precos
