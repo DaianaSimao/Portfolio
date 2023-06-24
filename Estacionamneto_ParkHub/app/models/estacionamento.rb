@@ -20,7 +20,7 @@ class Estacionamento < ApplicationRecord
   
   def self.dados_estacionamento
     sql_query = <<-SQL
-      SELECT e.id, v.tipo, v.placa, v.marca, v.modelo, v.cor, vg.andar, vg.numero_vaga, p.preco_hora
+      SELECT e.id, v.tipo, v.placa, v.marca, v.modelo, v.cor, vg.vaga, p.preco_hora
       FROM estacionamentos e
       JOIN veiculos v ON e.veiculo_id = v.id
       JOIN vagas vg ON e.vaga_id = vg.id
