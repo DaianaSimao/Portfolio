@@ -18,13 +18,13 @@
                   <h4>Cadastro de Preços</h4>
                   <span class="text-muted">Preencha todos os dados corretamente:</span>
               </div>
-              <div class="col-lg-6 col-md-12">
+              <div class="col-lg-3 col-md-12">
                   <div class="form-floating">
                       <%= form.number_field :preco, step: :any, class:"form-control", placeholder:"Digite o andar",required: true %>
                       <%= form.label :preco %>
                   </div>
               </div>
-              <div class="col-lg-4 col-md-12">
+              <div class="col-lg-3 col-md-12">
                 <div class="form-floating">
                   <%= form.select :tipo, options_for_select(@tipos), { include_blank: true }, class: "form-select" %>
                   <%= form.label :tipo %>
