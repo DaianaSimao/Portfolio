@@ -5,11 +5,14 @@ Rails.application.routes.draw do
     get  'subject/:subject_id/:subject', to: 'search#subject', as: 'search_subject'
     post 'answer', to: 'answer#question'
   end
+
   namespace :users_backoffice do
     get 'welcome/index'
     get 'profile', to: 'profile#edit'
     patch 'profile', to: 'profile#update'
+    get 'zip_code', to: 'zip_code#show'
   end
+
   namespace :admins_backoffice do
     get 'welcome/index' # dashboard
     resources :admins  # Administradores
