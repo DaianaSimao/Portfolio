@@ -1,3 +1,4 @@
 class Preco < ApplicationRecord
-  belongs_to :veiculo
+  validates :tipo, presence: true
+  validates :preco_hora, presence: true
 end

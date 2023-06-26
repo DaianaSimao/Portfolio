@@ -12,13 +12,11 @@ class PrecosController < ApplicationController
 
   # GET /precos/new
   def new
-    @tipos = [" Carro P", "Carro M", "Carro G", "Moto"]
     @preco = Preco.new
   end
 
   # GET /precos/1/edit
   def edit
-    @tipos = [" Carro P", "Carro M", "Carro G", "Moto"]
   end
 
   # POST /precos or /precos.json
@@ -27,7 +25,7 @@ class PrecosController < ApplicationController
 
     respond_to do |format|
       if @preco.save
-        format.html { redirect_to preco_url(@preco), notice: "Preco was successfully created." }
+        format.html { redirect_to precos_path, notice: "Preco criado com sucesso." }
         format.json { render :show, status: :created, location: @preco }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -67,6 +65,6 @@ class PrecosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def preco_params
-      params.require(:preco).permit(:veiculo_id, :preco_hora)
+      params.require(:preco).permit( :preco_hora, :tipo)
     end
 end
