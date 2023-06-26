@@ -79,6 +79,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.3)
     devise (4.9.2)
@@ -96,6 +97,7 @@ GEM
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    hiredis (0.6.3)
     i18n (1.13.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.1)
@@ -218,6 +220,10 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (5.0.6)
+      redis-client (>= 0.9.0)
+    redis-client (0.14.1)
+      connection_pool
     regexp_parser (2.8.0)
     responders (3.1.0)
       actionpack (>= 5.2)
@@ -327,6 +333,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   faker
+  hiredis
   jbuilder (~> 2.5)
   kaminari
   kaminari-i18n
@@ -336,6 +343,7 @@ DEPENDENCIES
   rails (~> 5.2.3)
   rails-i18n (~> 5.1)
   rails_db (= 2.3)
+  redis
   sass-rails (~> 5.0)
   selenium-webdriver
   solargraph

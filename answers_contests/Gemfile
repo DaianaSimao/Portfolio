@@ -21,6 +21,8 @@ gem 'kaminari'
 gem 'kaminari-i18n'
 gem "cocoon"
 gem 'prawn-rails'
+gem 'redis'
+gem 'hiredis'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
