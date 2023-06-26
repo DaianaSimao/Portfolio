@@ -1,10 +1,23 @@
 "pt-BR":
+  activerecord:
+    models:
+      vaga: "Vagas"
+      preco: "Preços"
+    attributes:
+      vaga:
+        preco_hora: "Preço por hora"
+        tipo: "Tipo"
+    errors:
+      messages:
+        record_invalid: 'A validação falhou: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Não é possível excluir o registro pois existe um %{record} dependente
+          has_many: Não é possível excluir o registro pois existem %{record} dependentes
   date:
     formats:
       default: "%d/%m/%Y"
       short: "%d de %B"
       long: "%d de %B de %Y"
-
     day_names:
       - Domingo
       - Segunda
@@ -21,9 +34,8 @@
       - Qui
       - Sex
       - Sáb
-
     month_names:
-      - ~
+      -
       - Janeiro
       - Fevereiro
       - Março
@@ -63,7 +75,6 @@
     am: ''
     pm: ''
 
-  # Usado no Array.to_sentence
   support:
     array:
       words_connector: ", "
@@ -218,13 +229,3 @@
         one: "Não foi possível gravar %{model}: 1 erro"
         other: "Não foi possível gravar %{model}: %{count} erros."
       body: "Por favor, verifique o(s) seguinte(s) campo(s):"
-
-  activerecord:
-    errors:
-      messages:
-        <<: *errors_messages
-      template:
-        <<: *errors_template
-
-      full_messages:
-        format: "%{attribute} %{message}
