@@ -1,14 +1,12 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Precos</h1>
+<div style="display: flex; align-items: center;">
+  <h1 style="margin-right: 10px;">Preços</h1>
+  <%= link_to "Novo preço", new_preco_path, class: "btn4" %>
+</div>
 
 <div id="precos">
   <% @precos.each do |preco| %>
     <%= render preco %>
-    <p>
-      <%= link_to "Show this preco", preco %>
-    </p>
   <% end %>
 </div>
 
-<%= link_to "New preco", new_preco_path %>
+

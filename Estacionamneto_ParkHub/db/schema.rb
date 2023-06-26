@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_24_165229) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_25_214001) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,12 +52,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_24_165229) do
   end
 
   create_table "precos", force: :cascade do |t|
-    t.bigint "veiculo_id", null: false
     t.float "preco_hora"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "tipo"
-    t.index ["veiculo_id"], name: "index_precos_on_veiculo_id"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -86,16 +84,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_24_165229) do
     t.string "tipo"
   end
 
-  create_table "views", force: :cascade do |t|
-    t.string "Veiculo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   add_foreign_key "estacionamentos", "precos"
   add_foreign_key "estacionamentos", "tickets", column: "tickets_id"
   add_foreign_key "estacionamentos", "vagas"
   add_foreign_key "estacionamentos", "veiculos"
-  add_foreign_key "precos", "veiculos"
   add_foreign_key "tickets", "veiculos"
 end

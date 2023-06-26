@@ -209,6 +209,12 @@ body{
   width: 30%;
   background-color: #fff;
 }
+.card-4{
+  border: none;
+  border-radius: 10px;
+  width: 50%;
+  background-color: #fff;
+}
 
 .stellar{
   font-size: 16px;
@@ -235,8 +241,45 @@ body{
 }
 
 
-.icons i {
+// Css das mensagens
 
-margin-left: 20px;
-
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 12px;
 }
+
+button.close {
+  -webkit-appearance: none;
+  padding: 0;
+  cursor: pointer;
+  background: 0 0;
+  border: 0;
+}
+
+.close {
+  font-size: 20px;
+  color: #fff;
+  opacity: 0.9;
+  font-weight: normal;
+}
+
+.alert_success {
+  background-color: #09c97f;
+  border: 2px solid #09c97f;
+}
+
+.alert_error {
+  background-color: #f95668;
+  border: 2px solid #f95668;
+}
+
+
+
+
+// Css do tratamento de erros 
+
+//==================================
