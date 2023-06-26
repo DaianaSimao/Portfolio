@@ -5,3 +5,4 @@ import * as bootstrap from "bootstrap"
 
 
 //= require jquery
+//= require jquery_ujs
