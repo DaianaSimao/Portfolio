@@ -104,7 +104,8 @@ body{
   border-radius: 5px;
   display:flex;
   justify-content:center;
-  align-items:center
+  align-items:center;
+  text-decoration: none;
 }
 .btn2:hover{
   background-color:#af1d4c
@@ -125,7 +126,8 @@ body{
   border-radius: 5px;
   display:flex;
   justify-content:center;
-  align-items:center
+  align-items:center;
+  text-decoration: none;
 }
 
 .btn3:hover{
@@ -139,7 +141,7 @@ body{
 
 .btn4{
   height: 35px;
-  width: 70px;
+  width: 80px;
   border: none;
   background-color:#119cff;
   font-size: 12px;
@@ -147,7 +149,8 @@ body{
   border-radius: 5px;
   display:flex;
   justify-content:center;
-  align-items:center
+  align-items:center;
+  text-decoration: none;
 }
 
 .btn4:hover{
@@ -155,6 +158,52 @@ body{
 }
 
 .btn4:focus{
+  box-shadow:none;
+  outline:none
+}
+
+.btn5{
+  height: 35px;
+  width: 35px;
+  border: none;
+  background-color:#119cff;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 5px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-decoration: none;
+}
+
+.btn5:hover{
+  background-color:#12305f
+}
+
+.btn5:focus{
+  box-shadow:none;
+  outline:none
+}
+
+.btn6{
+  height: 35px;
+  width: 35px;
+  border: none;
+  background-color:#c44615;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 5px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-decoration: none;
+}
+
+.btn6:hover{
+  background-color:#381609
+}
+
+.btn6:focus{
   box-shadow:none;
   outline:none
 }
@@ -215,6 +264,13 @@ body{
   border: none;
   border-radius: 10px;
   width: 50%;
+  background-color: #fff;
+}
+
+.card-7{
+  border: none;
+  border-radius: 10px;
+  width: 15%;
   background-color: #fff;
 }
 
@@ -400,10 +456,10 @@ a {
       border-right: none;
   }
 
-  .card-7 {
+  .card-9 {
       border-top: 1px solid #EEEEEE !important;
       margin: 0px 15px;
   }
 }
 
-//==================================
+//===========================

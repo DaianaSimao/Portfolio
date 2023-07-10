@@ -1,6 +1,6 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
-    <div class="card card-5 border-0">
+    <div class="card card-6 border-0">
       <div class="row d-flex">
         <div class="col-lg-6">
           <div class="card-6 pb-5">
@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="col-lg-6">
-          <div class="card-7 card border-0 px-4 py-5">
+          <div class="card-9 card border-0 px-4 py-5">
             <h2 style="color: #119cff;">Entrar</h2>
             <div class="row px-3">
               <h6 class="mb-0 text-sm"><%= f.label :email, class:"mb-1" %></h6>
@@ -22,14 +22,12 @@
             </div>
             <div class="row px-3 mb-4">
               <div class="custom-control custom-checkbox custom-control-inline">
-              <% if devise_mapping.rememberable? %>
-                <%= f.check_box :remember_me , class: 'custom-control-input' %>
-                <%= f.label :remember_me , class: 'custom-control-label text-sm' %>
-              <% end %>
+                  <%= f.check_box :remember_me, id: 'chk1', class: "form-check-input" %>
+                  <%= f.label :remember_me, for: 'chk1', class: "custom-control-label text-sm" %>
               </div>
             </div>
             <div class="row mb-3 px-3">
-              <%= f.submit "Log in", class: "btn btn-blue text-center" %>
+              <%= f.submit "Entrar", class: "btn btn-blue text-center" %>
             </div>
           </div>
         </div>
