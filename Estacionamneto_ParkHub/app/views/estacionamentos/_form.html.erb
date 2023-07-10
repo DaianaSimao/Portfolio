@@ -48,22 +48,17 @@
         </div>
         <div class="col-lg-4 col-md-12">
           <div class="form-floating">
-            <%= form.number_field :preco, class:"form-control", placeholder:"cor"%>
-            <%= form.label "Digite o numero da vaga:" %>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-12">
-          <div class="form-floating">
             <%= form.select :vaga, options_for_select(Vaga.pluck(:vaga).uniq),{ include_blank: true }, class: "form-select" %>
             <%= form.label "Digite o anda da vaga:" %>
           </div>
         </div>
         <div class="col-12 mt-4">
-          <%= form.submit "Add veiculo", class: "btn btn-success text-uppercase" %>
-          <br>
-          <%= link_to estacionamentos_path, class: "btn btn-danger text-uppercase" do %>
-            Cancelar
-          <% end %>
+          <div class="btn-group" role="group" aria-label="Botões">
+            <%= form.submit "Add veiculo", class: "btn btn-success text-uppercase",  style: "margin-right: 10px;" %>
+            <%= link_to estacionamentos_path, class: "btn btn-danger text-uppercase" do %>
+              Cancelar
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
