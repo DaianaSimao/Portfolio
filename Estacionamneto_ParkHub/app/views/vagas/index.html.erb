@@ -1,12 +1,46 @@
-<p style="color: green"><%= notice %></p>
-
 <div style="display: flex; align-items: center;">
-  <h1 style="margin-right: 10px;">Vagas</h1>
-  <%= link_to "Nova vaga", new_vaga_path, class: "btn4" %>
-</div>
-
-<div id="vagas">
-  <% @vagas.each do |vaga| %>
-    <%= render vaga %>
+  <h1 style="margin-left:100px; margin-right: 20px">Vagas</h1>
+  <% if current_user && current_user.admin? %>
+    <%= link_to "Nova vaga", new_vaga_path, class: "btn4" %>
   <% end %>
+</div>
+<div class="container container-vagas mt-2">
+  <table class="table table-borderless table-responsive card-7">
+    <thead>
+      <tr class="border-bottom">
+        <th>
+          <span></span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @vagas.each_slice(3) do |grupo_vagas| %>
+        <tr class="border-bottom">
+          <% grupo_vagas.each do |vaga| %>
+            <td>
+              <div>
+                <span class="d-block font-weight-bold"><%= vaga.vaga %></span>
+              </div>
+            </td>
+            <% if current_user && current_user.admin? %>
+              <td>
+                <div class="d-flex flex-row align-items-center">
+                  <div class="d-flex flex-column ml-2">
+                    <%= link_to "#", class: "btn5 ", style: "margin-right: 10px;" do %>
+                      <i class="bi bi-pencil-square"></i>
+                    <% end %>
+                  </div>
+                  <div class="d-flex flex-column ml-2">
+                    <%= link_to "#", class: "btn6 " do %>
+                      <i class="bi bi-trash"></i>
+                    <%end%>
+                  </div>
+                </div>
+              </td>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </tbody>
+  </table>
 </div>
