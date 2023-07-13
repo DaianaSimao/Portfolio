@@ -1,0 +1,2 @@
+module AlugueisHelper
+end
