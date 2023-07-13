@@ -2,7 +2,6 @@
   <% if vaga.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(vaga.errors.count, "error") %> prohibited this vaga from being saved:</h2>
-
       <ul>
         <% vaga.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,25 +9,39 @@
       </ul>
     </div>
   <% end %>
-
   <div class="container">
-      <div class="card p-4 mt-5">
-          <div class="row g-3">
-              <div class="col-12 mb-4">
-                  <h4>Cadastrar Vagas</h4>
-                  <span class="text-muted">Preencha todos os dados corretamente:</span>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                  <div class="form-floating">
-                      <%= form.text_field :vaga, class:"form-control", placeholder:"Digite o andar",required: true %>
-                      <%= form.label :vaga %>
-                  </div>
-              </div>
-              <div class="col-12 mt-4">
-                  <%= form.submit "Add vaga" , class:"btn btn-primary text-uppercase"%><i class="fa fa-plane ms-3"></i>
-                  <%= link_to "Volta para vagas", vagas_path , class: "btn btn-secondary text-uppercase"%>
-              </div>
+    <div class="card p-4 mt-5">
+      <div class="row g-3">
+        <div class="col-12">
+          <div class="form-check form-check-inline">
+            <%= form.check_box :status, class: 'form-check-input', id: 'status_ocupada' %>
+            <%= form.label :status, ' Ocupada', class: 'form-check-label' %>
           </div>
+          <div class="form-check form-check-inline">
+            <%= form.check_box :status, class: 'form-check-input', id: 'status_disponivel' %>
+            <%= form.label :status, ' Disponível', class: 'form-check-label' %>
+          </div>
+          <div class="col-12 mb-4">
+            <h4>Cadastrar Vagas</h4>
+            <span class="text-muted">Preencha todos os dados corretamente:</span>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="form-floating">
+              <%= form.text_field :vaga, class:"form-control", placeholder:"Digite o andar",required: true %>
+              <%= form.label :vaga %>
+            </div>
+          </div>
+          <div>
+            <div class="row mb-3 mt-3">
+              <div class="col-2">
+                <%= form.submit "Add vaga", class: "btn text-uppercase" %>
+              </div>
+              <div class="col-2">
+                <%= link_to "Vagas", vagas_path, class: "btn  text-uppercase" %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-  </div>
-<% end %>
+    </div>
+  <% end %>
