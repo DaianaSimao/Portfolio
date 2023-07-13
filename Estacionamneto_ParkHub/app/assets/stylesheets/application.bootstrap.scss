@@ -254,12 +254,15 @@ body{
   border-radius: 8px;
   width:100%
 }
+
 .card-3{
   border: none;
   border-radius: 10px;
-  width: 30%;
+  width: 60%;
   background-color: #fff;
+  
 }
+
 .card-4{
   border: none;
   border-radius: 10px;
@@ -272,6 +275,25 @@ body{
   border-radius: 10px;
   width: 15%;
   background-color: #fff;
+}
+
+.card-10{
+  border: none;
+  border-radius: 10px;
+  width: 15%;
+  background-color: #fff;
+}
+
+div.flex-align {
+  display: -webkit-flexbox;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  height: 100%;
 }
 
 .stellar{
@@ -326,8 +348,8 @@ button.close {
 }
 
 .alert_success {
-  background-color: #09c97f;
-  border: 2px solid #09c97f;
+  background-color: #119cff;
+  border: 2px solid #119cff;
 }
 
 .alert_error {
@@ -335,7 +357,11 @@ button.close {
   border: 2px solid #f95668;
 }
 
-
+.small-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+//==============================
 
 
 // Css da tela de login do funcionario
@@ -463,3 +489,5 @@ a {
 }
 
 //===========================
+
+// Css de vagas
