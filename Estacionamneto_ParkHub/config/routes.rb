@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :vagas
   resources :veiculos
   resources :precos
-  resources :tickets
   get 'inicio/index'
   root "inicio#index"
 end
