@@ -5,63 +5,60 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
-
-  <body>
+  <body >
     <div class="container mt-3">
       <div class="card card1 p-2">
-          <div class="innercard p-2">
-              <nav class="navbar navbar-expand-lg navbar-light">
-                  <div class="container-fluid"><img src="https://cdn.icon-icons.com/icons2/577/PNG/256/ExecutiveCar_Black_icon-icons.com_54904.png" height="50px" width="50px" /> <a class="navbar-brand name" href="#"> Park<span class="go">Hub</span></a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                              <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#"><span class="home">Inicio</span></a> </li>
-                              <li class="nav-item"> <a class="nav-link" href="#">Estacionamento</a> </li>
-                              <li class="nav-item"> <a class="nav-link" href="#">Cadastro Preço</a> </li>
-                              <li class="nav-item"> <a class="nav-link" href="#">Cadastra Carros</a> </li>
-                              <li class="nav-item"> <a class="nav-link" href="#">Vagas</a></li>
-                          </ul>
-                      </div>
-                  </div>
-              </nav>
-
-              <div class="container mt-5">
-                <div class="row">
-                  <div id="alert" class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
-                    <% flash.each do |type, message| %>
-                      <% if type == "alert" or type =="errors"%>
-                        <div class="alert alert_warning"><button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times;</button> 
-                        <strong><%= message%></strong></div>
-                      <% else %>
-                        <div  class="alert alert_success"> <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times;</button> 
-                        <strong><%= message %></strong> </div>
-                      <% end %>
-                    <%end%>
-                  </div>
-                <div>
-              </div>
-              <script>
-                setTimeout(function() {
-                  var alertElement = document.getElementById('alert');
-                  alertElement.classList.add('hidden');
-                }, 10000); // Tempo em milissegundos (neste exemplo, 5000ms = 5 segundos)
-              </script>
-
-              <style>
-                .hidden {
-                  display: none !important;
-                }
-              </style>
-  
-              <%= yield %>
-            </div>
+        <div class="innercard p-2">
+          <nav class="navbar navbar-expand-lg navbar-light mb-5">
+            <div class="container-fluid"><img src="https://cdn.icon-icons.com/icons2/577/PNG/256/ExecutiveCar_Black_icon-icons.com_54904.png" height="50px" width="50px" /> <a class="navbar-brand name" href="#"> Park<span class="go">Hub</span></a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <%= content_tag :li, class: "nav-item" do %>
+                    <%= link_to(inicio_index_path, class: "nav-link active", "aria-current" => "page") do %>
+                      <%= content_tag :span, "Inicio", class: "home" %>
+                    <% end %>
+                  <% end %>
+                  <% if current_user && current_user.admin? %>
+                    <%= link_to "Cadastro Preço", precos_path, class:"nav-item nav-link"%>
+                    <%= link_to "Estacionamento", estacionamentos_path, class:"nav-item nav-link"%>
+                    <%= link_to "Cadastro de Veiculos",veiculos_path, class:"nav-item nav-link"%>
+                    <%= link_to "Vagas",vagas_path, class:"nav-item nav-link"%>
+                  <% elsif current_user && current_user.funcionario?%>
+                    <%= link_to "Estacionamento", estacionamentos_path, class:"nav-item nav-link"%>
+                    <%= link_to "Cadastro de Veiculos",veiculos_path, class:"nav-item nav-link"%>
+                    <%= link_to "Vagas",vagas_path, class:"nav-item nav-link"%>
+                  <% end %>
+                </ul>
+                <% if user_signed_in? %>
+                  <%= link_to destroy_user_session_url, method: :delete, class:"btn btn-dark" do %>
+                    <span style="margin-right: 5px;">Sair</span>
+                    <i class="bi bi-box-arrow-in-left"></i>
+                  <% end %>
+              <% else %>
+                <%= link_to new_user_session_path, class:"btn btn-dark" do %>
+                 <span style="margin-right: 5px;">Entrar</span>
+                 <i class="bi bi-box-arrow-right"></i>
+                <% end %>
+            <% end %>
           </div>
         </div>
+      </nav>
+      <div class="container small-container">
+        <% flash.each do |type, message| %>
+          <div class="alert alert_<%= type == "alert"? "error" : "success" %> alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-circle"></i> <%= message %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        <% end %>
       </div>
+      <%= yield %>
     </div>
-    
-  </body>
+  </div>
+</div>
+</div>
+</div>
+</body>
 </html>
