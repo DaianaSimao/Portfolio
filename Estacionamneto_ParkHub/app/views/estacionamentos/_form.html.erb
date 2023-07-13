@@ -1,20 +1,10 @@
 <%= form_with(model: estacionamento, url: estacionamentos_path) do |form| %>
-  <% if estacionamento.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(estacionamento.errors.count, "error") %> prohibited this estacionamento from being saved:</h2>
-      <ul>
-        <% estacionamento.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="container">
     <div class="card p-4 mt-5">
       <div class="row g-3">
         <div class="col-12 mb-4">
-          <h4>Estacionamento</h4>
-          <span class="text-muted">Preencha os dados do veiculo corretamente</span>
+          <h4>Fazer Check-in</h4>
+          <span class="text-muted">Preencha todos os dados</span>
         </div>
         <div class="col-lg-4 col-md-12">
           <div class="form-floating">
