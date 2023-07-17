@@ -1,0 +1,96 @@
+<div style="display: flex; align-items: center; margin-bottom: 50px; margin-left: 60px;">
+  <h1 style="margin-right: 10px;">Lista de Check-ins</h1>
+  <%= link_to "Check-in",new_checkin_path, class: "btn4"%>
+</div>
+<div class="container mt-2">
+  <table class="table table-borderless table-responsive card-3 ">
+    <thead>
+      <tr class="border-bottom">
+        <th>
+          <span>Placa</span>
+        </th>
+        <th>
+          <span>Marca</span>
+        </th>
+        <th>
+          <span>Modelo</span>
+        </th>
+        <th>
+          <span>Cor</span>
+        </th>
+        <th>
+          <span>Vaga</span>
+        </th>
+        <th>
+          <span>Status da Vaga</span>
+        </th>
+        <th>
+          <span>Tipo</span>
+        </th>
+        <th>
+          <span>Preço</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @checkins.each do |checkin| %>
+        <tr class="border-bottom">
+          <td>
+            <div>
+              <span class="d-block font-weight-bold"><%= checkin.placa.upcase%></span>
+            </div>
+          </td>
+          <td>
+            <div>
+              <span class="d-block font-weight-bold"><%= checkin.marca%></span>
+            </div>
+          </td>
+          <td>
+            <div>
+              <span class="d-block font-weight-bold"><%= checkin.modelo%></span>
+            </div>
+          </td>
+          <td>
+            <div>
+              <span class="d-block font-weight-bold"><%= checkin.cor %></span>
+            </div>
+          </td>
+          <td>
+            <div>
+              <span class="d-block font-weight-bold"><%= checkin.vaga.vaga_nome %></span>
+            </div>
+          </td>
+          <td>
+            <div>
+              <span class="d-block font-weight-bold"><%= checkin.vaga_status ? 'Ocupada' : 'Disponivel' %></span>
+            </div>
+          </td>
+          <td>
+            <div>
+              <span class="d-block font-weight-bold"><%=  checkin.preco.tipo %></span>
+            </div>
+          </td>
+          <td>
+            <div>
+              <span class="d-block font-weight-bold"><%= checkin.preco.preco_hora %></span>
+            </div>
+          </td>
+          <td>
+            <div class="d-flex flex-row align-items-center">
+              <div class="d-flex flex-column ml-2">
+                <%= link_to "#", class: "btn5 ", style: "margin-right: 10px;" do %>
+                  <i class="bi bi-pencil-square"></i>
+                <% end %>
+              </div>
+              <div class="d-flex flex-column ml-2">
+                <%= link_to "#", class: "btn6 " do %>
+                  <i class="bi bi-trash"></i>
+                <%end%>
+              </div>
+            </div>
+          </td>
+        </div>
+      <% end %>
+    </tbody>
+  </table>
+</div>

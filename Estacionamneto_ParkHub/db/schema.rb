@@ -10,28 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_13_005405) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_17_204140) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "alugueis", force: :cascade do |t|
-    t.bigint "estacionamento_id", null: false
-    t.date "hora_saida"
-    t.float "preco_final"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["estacionamento_id"], name: "index_alugueis_on_estacionamento_id"
-  end
-
-  create_table "estacionamentos", force: :cascade do |t|
+  create_table "checkins", force: :cascade do |t|
     t.bigint "veiculo_id", null: false
-    t.bigint "vaga_id", null: false
     t.bigint "preco_id", null: false
+    t.bigint "vaga_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["preco_id"], name: "index_estacionamentos_on_preco_id"
-    t.index ["vaga_id"], name: "index_estacionamentos_on_vaga_id"
-    t.index ["veiculo_id"], name: "index_estacionamentos_on_veiculo_id"
+    t.string "veiculo_placa"
+    t.string "veiculo_modelo"
+    t.string "veiculo_marca"
+    t.string "veiculo_cor"
+    t.string "preco_tipo"
+    t.float "preco_preco_hora"
+    t.string "vaga_vaga_nome"
+    t.boolean "status"
+    t.index ["preco_id"], name: "index_checkins_on_preco_id"
+    t.index ["vaga_id"], name: "index_checkins_on_vaga_id"
+    t.index ["veiculo_id"], name: "index_checkins_on_veiculo_id"
   end
 
   create_table "precos", force: :cascade do |t|
@@ -57,7 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_13_005405) do
   create_table "vagas", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "vaga"
+    t.string "vaga_nome"
     t.boolean "status"
   end
 
@@ -68,11 +67,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_13_005405) do
     t.string "cor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "tipo"
   end
 
-  add_foreign_key "alugueis", "estacionamentos"
-  add_foreign_key "estacionamentos", "precos"
-  add_foreign_key "estacionamentos", "vagas"
-  add_foreign_key "estacionamentos", "veiculos"
+  add_foreign_key "checkins", "precos"
+  add_foreign_key "checkins", "vagas"
+  add_foreign_key "checkins", "veiculos"
 end
