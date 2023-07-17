@@ -14,11 +14,11 @@
       <div class="row g-3">
         <div class="col-12">
           <div class="form-check form-check-inline">
-            <%= form.check_box :status, class: 'form-check-input', id: 'status_ocupada' %>
+            <%= form.check_box :status, class: 'form-check-input', id: 'status_ocupada', checked: !vaga.status %>
             <%= form.label :status, ' Ocupada', class: 'form-check-label' %>
           </div>
           <div class="form-check form-check-inline">
-            <%= form.check_box :status, class: 'form-check-input', id: 'status_disponivel' %>
+            <%= form.check_box :status, class: 'form-check-input', id: 'status_disponivel', checked: vaga.status %>
             <%= form.label :status, ' Disponível', class: 'form-check-label' %>
           </div>
           <div class="col-12 mb-4">
@@ -34,7 +34,7 @@
           <div>
             <div class="row mb-3 mt-3">
               <div class="col-2">
-                <%= form.submit "Add vaga", class: "btn text-uppercase" %>
+                <%= form.submit "Atualizar vaga", class: "btn text-uppercase" %>
               </div>
               <div class="col-2">
                 <%= link_to "Vagas", vagas_path, class: "btn  text-uppercase" %>
