@@ -8,9 +8,21 @@
   <table class="table table-borderless table-responsive card-7">
     <thead>
       <tr class="border-bottom">
-        <th>
-          <span></span>
-        </th>
+        <% i = 1  %>
+        <% while i <= 3%>
+          <th>
+            <span></span>
+          </th>
+          <th>
+            <span>Status</span>
+          </th>
+          <% if current_user && current_user.admin? %>
+            <th>
+              <span></span>
+            </th>
+          <% end %>
+          <% i += 1%>
+        <% end %>
       </tr>
     </thead>
     <tbody>
@@ -19,14 +31,19 @@
           <% grupo_vagas.each do |vaga| %>
             <td>
               <div>
-                <span class="d-block font-weight-bold"><%= vaga.vaga %></span>
+                <span class="d-block font-weight-bold"><%= vaga.vaga_nome %></span>
+              </div>
+            </td>
+                  <td>
+              <div>
+                <span class="d-block font-weight-bold"><%= vaga.status == true ? "Disponivel" : "Ocupado"%></span>
               </div>
             </td>
             <% if current_user && current_user.admin? %>
               <td>
                 <div class="d-flex flex-row align-items-center">
                   <div class="d-flex flex-column ml-2">
-                    <%= link_to "#", class: "btn5 ", style: "margin-right: 10px;" do %>
+                    <%= link_to edit_vaga_url(vaga), class: "btn5 ", style: "margin-right: 10px;" do %>
                       <i class="bi bi-pencil-square"></i>
                     <% end %>
                   </div>
