@@ -23,11 +23,11 @@
                   <% end %>
                   <% if current_user && current_user.admin? %>
                     <%= link_to "Cadastro Preço", precos_path, class:"nav-item nav-link"%>
-                    <%= link_to "Estacionamento", estacionamentos_path, class:"nav-item nav-link"%>
+                    <%= link_to "Check-in", checkins_path, class:"nav-item nav-link"%>
                     <%= link_to "Cadastro de Veiculos",veiculos_path, class:"nav-item nav-link"%>
                     <%= link_to "Vagas",vagas_path, class:"nav-item nav-link"%>
                   <% elsif current_user && current_user.funcionario?%>
-                    <%= link_to "Estacionamento", estacionamentos_path, class:"nav-item nav-link"%>
+                    <%= link_to 'Check-ins', checkins_path, class:"nav-item nav-link"%>
                     <%= link_to "Cadastro de Veiculos",veiculos_path, class:"nav-item nav-link"%>
                     <%= link_to "Vagas",vagas_path, class:"nav-item nav-link"%>
                   <% end %>
