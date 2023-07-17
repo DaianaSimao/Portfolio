@@ -41,12 +41,6 @@
                     <%= form.label "Digite a cor do carro:" %>
                 </div>
             </div>
-              <div class="col-lg-4 col-md-12">
-                <div class="form-floating">
-                  <%= form.select :tipo, options_for_select(@tipos), { include_blank: true }, class: "form-select" %>
-                  <%= form.label :tipo %>
-                </div>
-              </div>
             <div class="col-12 mt-4">
               <%= form.submit "Add veiculo", class: "btn btn-success text-uppercase" %>
               <br>
