@@ -3,7 +3,7 @@ class VagasController < ApplicationController
 
   # GET /vagas or /vagas.json
   def index
-    @vagas = Vaga.all
+    @vagas = Vaga.order(:id)
   end
 
   # GET /vagas/1 or /vagas/1.json
@@ -38,7 +38,7 @@ class VagasController < ApplicationController
   def update
     respond_to do |format|
       if @vaga.update(vaga_params)
-        format.html { redirect_to vaga_url(@vaga), notice: "Vaga was successfully updated." }
+        format.html { redirect_to vagas_path(@vagas), notice: "Vaga atualizada com sucesso!" }
         format.json { render :show, status: :ok, location: @vaga }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class VagasController < ApplicationController
     @vaga.destroy
 
     respond_to do |format|
-      format.html { redirect_to vagas_url, notice: "Vaga was successfully destroyed." }
+      format.html { redirect_to vagas_url, notice: "Vaga excluída com sucesso!" }
       format.json { head :no_content }
     end
   end
@@ -65,6 +65,6 @@ class VagasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vaga_params
-      params.require(:vaga).permit(:vaga)
+      params.require(:vaga).permit(:vaga_nome, :status)
     end
 end
