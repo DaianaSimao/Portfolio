@@ -24,8 +24,20 @@
                   <% if current_user && current_user.admin? %>
                     <%= link_to "Cadastro Preço", precos_path, class:"nav-item nav-link"%>
                     <%= link_to "Check-in", checkins_path, class:"nav-item nav-link"%>
-                    <%= link_to "Cadastro de Veiculos",veiculos_path, class:"nav-item nav-link"%>
                     <%= link_to "Vagas",vagas_path, class:"nav-item nav-link"%>
+                    <%= content_tag :li, class: "nav-item dropdown" do %>
+                      <%= link_to "#", class: "nav-link dropdown-toggle", role: "button", "data-bs-toggle": "dropdown", "aria-expanded": "false" do %>
+                        Cadastros
+                      <% end %>
+                      <%= content_tag :ul, class: "dropdown-menu" do %>
+                        <%= content_tag :li do %>
+                          <%= link_to "Preços", new_preco_path, class: "dropdown-item" %>
+                        <% end %>
+                        <%= content_tag :li do %>
+                          <%= link_to "Vagas", new_vaga_path, class: "dropdown-item" %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
                   <% elsif current_user && current_user.funcionario?%>
                     <%= link_to 'Check-ins', checkins_path, class:"nav-item nav-link"%>
                     <%= link_to "Cadastro de Veiculos",veiculos_path, class:"nav-item nav-link"%>
