@@ -22,7 +22,6 @@
                     <% end %>
                   <% end %>
                   <% if current_user && current_user.admin? %>
-                    <%= link_to "Cadastro Preço", precos_path, class:"nav-item nav-link"%>
                     <%= link_to "Check-in", checkins_path, class:"nav-item nav-link"%>
                     <%= link_to "Vagas",vagas_path, class:"nav-item nav-link"%>
                     <%= content_tag :li, class: "nav-item dropdown" do %>
