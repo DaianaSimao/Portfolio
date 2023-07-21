@@ -18,11 +18,9 @@
             <%= form.label :tipo %>
           </div>
         </div>
-        <div class="col-12 mt-4">
-          <div class="btn-group" role="group" aria-label="Botões">
-            <%= form.submit "Add preços", class: "btn btn-success text-uppercase",  style: "margin-right: 10px;" %>
-            <%= link_to "Volta para preços", precos_path, class: "btn btn-danger text-uppercase" %>
-          </div>
+        <div class="col-12 d-flex mt-4">
+          <%= form.submit "Add preços", class: "btn btn-dark",  style: "margin-right: 10px;" %>
+          <%= link_to "Cancelar", precos_path, class: "btn btn-dark" %>
         </div>
       </div>
     </div>
