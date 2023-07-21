@@ -62,7 +62,7 @@
           </td>
           <td>
             <div>
-              <span class="d-block font-weight-bold"><%= checkin.status%></span>
+              <span class="d-block font-weight-bold"><%= checkin.vaga.status == true ? "Disponivel" : "Ocupado" %></span>
             </div>
           </td>
           <td>
@@ -83,7 +83,7 @@
                 <% end %>
               </div>
               <div class="d-flex flex-column ml-2">
-                <%= link_to "#", class: "btn6 " do %>
+                <%=  button_to checkin_path(checkin), method: :delete, class: "btn6 " do %>
                   <i class="bi bi-trash"></i>
                 <%end%>
               </div>
