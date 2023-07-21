@@ -37,22 +37,22 @@
         <tr class="border-bottom">
           <td>
             <div>
-              <span class="d-block font-weight-bold"><%= checkin.placa.upcase%></span>
+              <span class="d-block font-weight-bold"><%= checkin.veiculo_placa%></span>
             </div>
           </td>
           <td>
             <div>
-              <span class="d-block font-weight-bold"><%= checkin.marca%></span>
+              <span class="d-block font-weight-bold"><%= checkin.veiculo_marca%></span>
             </div>
           </td>
           <td>
             <div>
-              <span class="d-block font-weight-bold"><%= checkin.modelo%></span>
+              <span class="d-block font-weight-bold"><%= checkin.veiculo_modelo%></span>
             </div>
           </td>
           <td>
             <div>
-              <span class="d-block font-weight-bold"><%= checkin.cor %></span>
+              <span class="d-block font-weight-bold"><%= checkin.veiculo_cor %></span>
             </div>
           </td>
           <td>
@@ -62,7 +62,7 @@
           </td>
           <td>
             <div>
-              <span class="d-block font-weight-bold"><%= checkin.vaga_status ? 'Ocupada' : 'Disponivel' %></span>
+              <span class="d-block font-weight-bold"><%= checkin.status%></span>
             </div>
           </td>
           <td>
@@ -78,7 +78,7 @@
           <td>
             <div class="d-flex flex-row align-items-center">
               <div class="d-flex flex-column ml-2">
-                <%= link_to "#", class: "btn5 ", style: "margin-right: 10px;" do %>
+                <%= link_to edit_checkin_path(checkin), class: "btn5 ", style: "margin-right: 10px;" do %>
                   <i class="bi bi-pencil-square"></i>
                 <% end %>
               </div>
