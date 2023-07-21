@@ -28,6 +28,8 @@ class CheckinsController < ApplicationController
   end
 
   def update
+    @checkin.status = params[:status] == 'Ocupada' ? true : false
+
     if @checkin.update(checkin_params)
       redirect_to checkins_path, notice: 'Check-in atualizado com sucesso.'
     else
