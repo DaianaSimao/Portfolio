@@ -1,68 +1,62 @@
-<%= form_with(model: @checkin, url: checkins_path) do |form| %>
-  <div class="container" id="info-veiculo">
+<%= form_with(model: @checkin, url: checkins_path, method: :post) do |form| %>  <div class="container" id="info-veiculo">
     <div class="card p-4 mt-5">
       <div class="row g-3">
         <div class="col-12 mb-4">
           <h4>Fazer Check-in</h4>
         </div>
-        <div class="col-lg-4 col-md-12">
-          <div class="field form-floating">
-            <%= form.text_field :veiculo_placa,class: "form-control", placeholder:"Digite a placa", required: true %>
-            <%= form.label "Digite a placa" %>
+        <div>
+          <div class="col-lg-4 col-md-12">
+            <div class="form-check form-check-inline">
+              <%= form.radio_button :status, true, id: 'status_ocupada', class: 'form-check-input' %>
+              <%= form.label :status, ' Ocupada', class: 'form-check-label', for: 'status_ocupada' %>
+            </div>
+            <div class="form-check form-check-inline">
+              <%= form.radio_button :status, false, id: 'status_disponivel', class: 'form-check-input' %>
+              <%= form.label :status, ' Disponível', class: 'form-check-label', for: 'status_disponivel' %>
+            </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12">
           <div class="field form-floating">
-            <%= form.text_field :veiculo_modelo, class: "form-control", placeholder:"Digite o modelo", required: true %>
+            <%= form.text_field :veiculo_placa, class: "form-control", placeholder: "Digite a placa", required: true %>
+            <%= form.label :veiculo_placa %>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="field form-floating">
+            <%= form.text_field :veiculo_modelo, class: "form-control", placeholder: "Digite o modelo", required: true %>
             <%= form.label :veiculo_modelo %>
           </div>
         </div>
         <div class="col-lg-4 col-md-12">
           <div class="field form-floating">
-            <%= form.text_field :veiculo_marca, class:"form-control", placeholder:"Digite a marca", required: true %>
+            <%= form.text_field :veiculo_marca, class: "form-control", placeholder: "Digite a marca", required: true %>
             <%= form.label :veiculo_marca %>
           </div>
         </div>
         <div class="col-lg-4 col-md-12">
           <div class="field form-floating">
-            <%= form.text_field :veiculo_cor, class:"form-control", placeholder:"Digite a cor", required: true %>
+            <%= form.text_field :veiculo_cor, class: "form-control", placeholder: "Digite a cor", required: true %>
             <%= form.label :veiculo_cor %>
           </div>
         </div>
         <div class="col-lg-4 col-md-12">
           <div class="field form-floating">
             <%= form.collection_select :preco_id, Preco.all, :id, :tipo, { include_blank: true }, class: "form-select", required: true %>
-            <%= form.label "Tipo" %>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-12">
-          <div class="field form-floating">
-            <%= form.text_field :preco_preco_hora, class:"form-control",  placeholder:"Preço", required: true %>
-            <%= form.label "Preço por hora" %>
+            <%= form.label :preco_id, "Tipo" %>
           </div>
         </div>
         <div class="col-lg-4 col-md-12">
           <div class="field form-floating">
             <%= form.collection_select :vaga_id, Vaga.all, :id, :vaga_nome, { include_blank: true }, class: "form-select", required: true %>
-            <%= form.label "Escolha a vaga:" %>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-12">
-          <div class="form-check form-check-inline">
-            <%= form.radio_button :status, 'ocupada', id: 'status_ocupada', class: 'form-check-input' %>
-            <%= form.label :status, ' Ocupada', class: 'form-check-label', for: 'status_ocupada' %>
-          </div>
-          <div class="form-check form-check-inline">
-            <%= form.radio_button :status, 'disponivel', id: 'status_disponivel', class: 'form-check-input' %>
-            <%= form.label :status, ' Disponível', class: 'form-check-label', for: 'status_disponivel' %>
+            <%= form.label :vaga_id, "Escolha a vaga:" %>
           </div>
         </div>
         <div class="col-12 mt-4 d-flex">
-            <%= form.submit "check-in", class: "btn btn-success text-uppercase",  style: "margin-right: 10px;" %>
-            <%= link_to checkins_path, class: "btn btn-danger text-uppercase" do %>
-              Cancelar
-            <% end %>
-          </div>
+          <%= form.submit "Check-in", class: "btn btn-success text-uppercase", style: "margin-right: 10px;" %>
+          <%= link_to checkins_path, class: "btn btn-danger text-uppercase" do %>
+            Cancelar
+          <% end %>
         </div>
       </div>
     </div>
