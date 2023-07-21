@@ -14,6 +14,9 @@ class CheckinsController < ApplicationController
 
   def create
     @checkin = Checkin.new(checkin_params)
+    @checkin.vaga_vaga_nome = @checkin.vaga.vaga_nome
+    @checkin.preco_tipo = @checkin.preco.tipo
+    @checkin.preco_preco_hora = @checkin.preco.preco_hora
 
     if @checkin.save
       redirect_to @checkin, notice: 'Check-in criado com sucesso.'
@@ -45,6 +48,6 @@ class CheckinsController < ApplicationController
   end
 
   def checkin_params
-    params.require(:checkin).permit(:placa, :marca, :modelo, :cor, :veiculo_id, :preco_id, :vaga_id, :vaga_status)
+    params.require(:checkin).permit(:veiculo_placa, :veiculo_marca, :veiculo_modelo, :veiculo_cor,:preco_tipo,:preco_preco_hora, :vaga_vaga_nome, :status, :veiculo_id, :preco_id, :vaga_id)
   end
 end
