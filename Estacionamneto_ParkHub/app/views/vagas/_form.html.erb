@@ -18,17 +18,17 @@
             <span class="text-muted">Preencha todos os dados corretamente:</span>
           </div>
           <div class="form-check form-check-inline">
-            <%= form.radio_button :status, 'ocupada', id: 'status_ocupada', class: 'form-check-input', checked: vaga.status == 'ocupada' %>
+            <%= form.radio_button :status, true, id: 'status_ocupada', class: 'form-check-input'%>
             <%= form.label :status, ' Ocupada', class: 'form-check-label', for: 'status_ocupada' %>
           </div>
           <div class="form-check form-check-inline mb-4">
-            <%= form.radio_button :status, 'disponivel', id: 'status_disponivel', class: 'form-check-input', checked: vaga.status == 'disponivel' %>
+            <%= form.radio_button :status, false, id: 'status_disponivel', class: 'form-check-input' %>
             <%= form.label :status, ' Disponível', class: 'form-check-label', for: 'status_disponivel' %>
           </div>
           <div class="col-lg-4 col-md-12">
             <div class="form-floating">
-              <%= form.text_field :vaga, class:"form-control", placeholder:"Digite o andar",required: true %>
-              <%= form.label :vaga %>
+              <%= form.text_field :vaga_nome, class:"form-control", placeholder:"Digite o andar",required: true %>
+              <%= form.label :vaga_nome %>
             </div>
           </div>
           <div>
