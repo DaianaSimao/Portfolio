@@ -6,7 +6,9 @@
         <% else %>
             <%= task.description %>
         <% end %>
-    <td><%= l task.due_date %>
+    </td>
+    <td><%= task.responsavel %></td>
+    <td><%= l task.due_date %></td>
 
     <td class="text-right pr-0">
         <% if task.parent? %>
